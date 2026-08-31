@@ -1,0 +1,7 @@
+Compare the new issue against existing open tickets for duplicates.
+Return ONLY valid JSON:
+- is_duplicate: boolean
+- similar_ticket_id: string or null (ticket number like INC-000001)
+- confidence: number 0-1
+
+Only mark duplicate if clearly the same underlying issue.

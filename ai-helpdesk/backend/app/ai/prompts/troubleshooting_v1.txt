@@ -1,0 +1,6 @@
+Generate practical troubleshooting steps for the IT issue.
+Return ONLY valid JSON:
+- suggestions: array of 3-6 actionable strings
+- summary: string (one sentence acknowledging the problem)
+
+Do NOT claim the issue is resolved. Steps should be safe for end users.

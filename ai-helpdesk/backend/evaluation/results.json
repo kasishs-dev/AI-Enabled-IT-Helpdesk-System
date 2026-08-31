@@ -1,0 +1,268 @@
+{
+  "test_cases_file": "test_cases.json",
+  "case_count": 12,
+  "thresholds": {
+    "validation": 0.8,
+    "duplicate": 0.9
+  },
+  "baseline": {
+    "approach": "Single-pass keyword triage + always create ticket + round-robin assign",
+    "aggregate": {
+      "cases": 12,
+      "pass_rate": 41.7,
+      "mean_triage_score": 48.8,
+      "action_accuracy": 66.7,
+      "category_accuracy": 66.7,
+      "severity_accuracy": 66.7,
+      "assignee_accuracy": 91.7,
+      "false_positive_tickets": 4,
+      "false_negative_tickets": 0
+    },
+    "cases": [
+      {
+        "id": "vpn_connect",
+        "pass": false,
+        "triage_score": 50.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.1,
+        "false_positive": false
+      },
+      {
+        "id": "invalid_hello",
+        "pass": false,
+        "triage_score": 0.0,
+        "action": "CREATE",
+        "expected": "SUPPRESS",
+        "latency_ms": 0.0,
+        "false_positive": true
+      },
+      {
+        "id": "production_outage",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      },
+      {
+        "id": "hardware_flicker",
+        "pass": true,
+        "triage_score": 85.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      },
+      {
+        "id": "self_service_password",
+        "pass": false,
+        "triage_score": 0.0,
+        "action": "CREATE",
+        "expected": "SUPPRESS",
+        "latency_ms": 0.0,
+        "false_positive": true
+      },
+      {
+        "id": "email_outlook",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      },
+      {
+        "id": "printer_jam",
+        "pass": true,
+        "triage_score": 75.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      },
+      {
+        "id": "security_phishing",
+        "pass": false,
+        "triage_score": 50.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      },
+      {
+        "id": "wifi_disconnect",
+        "pass": true,
+        "triage_score": 75.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      },
+      {
+        "id": "vague_help",
+        "pass": false,
+        "triage_score": 0.0,
+        "action": "CREATE",
+        "expected": "SUPPRESS",
+        "latency_ms": 0.0,
+        "false_positive": true
+      },
+      {
+        "id": "duplicate_vpn",
+        "pass": false,
+        "triage_score": 0.0,
+        "action": "CREATE",
+        "expected": "DUPLICATE",
+        "latency_ms": 0.0,
+        "false_positive": true
+      },
+      {
+        "id": "software_install",
+        "pass": false,
+        "triage_score": 50.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.0,
+        "false_positive": false
+      }
+    ]
+  },
+  "agent": {
+    "approach": "Multi-agent orchestration (analysis, validation, duplicate, classify, severity, assign)",
+    "aggregate": {
+      "cases": 12,
+      "pass_rate": 100.0,
+      "mean_triage_score": 95.8,
+      "action_accuracy": 100.0,
+      "category_accuracy": 91.7,
+      "severity_accuracy": 91.7,
+      "assignee_accuracy": 100.0,
+      "false_positive_tickets": 0,
+      "false_negative_tickets": 0
+    },
+    "cases": [
+      {
+        "id": "vpn_connect",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 2.0,
+        "false_positive": false
+      },
+      {
+        "id": "invalid_hello",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "SUPPRESS",
+        "expected": "SUPPRESS",
+        "latency_ms": 0.6,
+        "false_positive": false
+      },
+      {
+        "id": "production_outage",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 1.0,
+        "false_positive": false
+      },
+      {
+        "id": "hardware_flicker",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.9,
+        "false_positive": false
+      },
+      {
+        "id": "self_service_password",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "SUPPRESS",
+        "expected": "SUPPRESS",
+        "latency_ms": 0.6,
+        "false_positive": false
+      },
+      {
+        "id": "email_outlook",
+        "pass": true,
+        "triage_score": 75.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 2.2,
+        "false_positive": false
+      },
+      {
+        "id": "printer_jam",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 1.7,
+        "false_positive": false
+      },
+      {
+        "id": "security_phishing",
+        "pass": true,
+        "triage_score": 75.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 1.0,
+        "false_positive": false
+      },
+      {
+        "id": "wifi_disconnect",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 1.0,
+        "false_positive": false
+      },
+      {
+        "id": "vague_help",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "SUPPRESS",
+        "expected": "SUPPRESS",
+        "latency_ms": 0.6,
+        "false_positive": false
+      },
+      {
+        "id": "duplicate_vpn",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "DUPLICATE",
+        "expected": "DUPLICATE",
+        "latency_ms": 0.6,
+        "false_positive": false
+      },
+      {
+        "id": "software_install",
+        "pass": true,
+        "triage_score": 100.0,
+        "action": "CREATE",
+        "expected": "CREATE",
+        "latency_ms": 0.9,
+        "false_positive": false
+      }
+    ]
+  },
+  "comparison": {
+    "primary_metric": "mean_triage_score",
+    "baseline_score": 48.8,
+    "agent_score": 95.8,
+    "improvement_points": 47.0,
+    "pass_rate_baseline": 41.7,
+    "pass_rate_agent": 100.0,
+    "false_positives_baseline": 4,
+    "false_positives_agent": 0,
+    "false_negatives_baseline": 0,
+    "false_negatives_agent": 0
+  }
+}

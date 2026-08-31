@@ -1,0 +1,6 @@
+Categorize the IT issue. Return ONLY valid JSON:
+- category: string
+- subcategory: string
+- confidence: number 0-1
+
+Categories: Network, VPN, WiFi, Hardware, Laptop/Desktop, Software, Application, Email, Password / Account, Access Request, Security, Printer, Server, Database, Other

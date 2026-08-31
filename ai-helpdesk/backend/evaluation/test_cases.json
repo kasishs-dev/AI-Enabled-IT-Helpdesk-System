@@ -1,0 +1,171 @@
+{
+  "description": "Evaluation cases for baseline vs agentic IT helpdesk triage. All cases use public/synthetic data.",
+  "thresholds": {
+    "validation": 0.80,
+    "duplicate": 0.90
+  },
+  "cases": [
+    {
+      "id": "vpn_connect",
+      "title": "VPN is not connecting",
+      "description": "I cannot connect to the company VPN. I have tried restarting the VPN client and my laptop but it still doesn't connect.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "VPN",
+        "severity": "P2",
+        "assignee": ["Amit Patel", "Raj Shah"]
+      },
+      "notes": "Core demo flow — genuine VPN issue"
+    },
+    {
+      "id": "invalid_hello",
+      "title": "Hello",
+      "description": "Hello",
+      "existing_tickets": [],
+      "expected": {
+        "action": "SUPPRESS",
+        "category": null,
+        "severity": null,
+        "assignee": null
+      },
+      "notes": "Insufficient information — should not create ticket"
+    },
+    {
+      "id": "production_outage",
+      "title": "Production application down",
+      "description": "Production application is completely unavailable for the entire company. All employees affected.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "Application",
+        "severity": "P1",
+        "assignee": ["Amit Patel", "Priya Mehta", "Raj Shah"]
+      },
+      "notes": "Critical P1 — must always reach IT"
+    },
+    {
+      "id": "hardware_flicker",
+      "title": "Laptop screen keeps flickering",
+      "description": "My laptop screen keeps flickering during meetings and affects my productivity.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "Hardware",
+        "severity": "P3",
+        "assignee": ["Priya Mehta"]
+      },
+      "notes": "Hardware specialist assignment"
+    },
+    {
+      "id": "self_service_password",
+      "title": "How do I reset password",
+      "description": "How do I reset my password? I forgot it.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "SUPPRESS",
+        "category": null,
+        "severity": null,
+        "assignee": null
+      },
+      "notes": "Self-service — validation agent should suppress"
+    },
+    {
+      "id": "email_outlook",
+      "title": "Outlook not syncing",
+      "description": "Microsoft Outlook is not syncing emails. Messages stuck in outbox since this morning.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "Email",
+        "severity": "P3",
+        "assignee": ["Priya Mehta", "Amit Patel", "Raj Shah"]
+      },
+      "notes": "Email category classification"
+    },
+    {
+      "id": "printer_jam",
+      "title": "Printer paper jam",
+      "description": "Printer on 3rd floor showing paper jam error. Cannot print documents.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "Printer",
+        "severity": "P4",
+        "assignee": ["Priya Mehta", "Amit Patel", "Raj Shah"]
+      },
+      "notes": "Low priority printer issue"
+    },
+    {
+      "id": "security_phishing",
+      "title": "Suspicious phishing email",
+      "description": "I received a security phishing email and clicked a suspicious link. Possible security breach.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "Security",
+        "severity": "P1",
+        "assignee": ["Amit Patel", "Priya Mehta", "Raj Shah"]
+      },
+      "notes": "Security incident — P1 escalation"
+    },
+    {
+      "id": "wifi_disconnect",
+      "title": "WiFi disconnecting frequently",
+      "description": "My laptop WiFi disconnects every few minutes on the corporate wireless network.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "WiFi",
+        "severity": "P3",
+        "assignee": ["Amit Patel", "Raj Shah"]
+      },
+      "notes": "WiFi/network routing"
+    },
+    {
+      "id": "vague_help",
+      "title": "Need help",
+      "description": "Need help please",
+      "existing_tickets": [],
+      "expected": {
+        "action": "SUPPRESS",
+        "category": null,
+        "severity": null,
+        "assignee": null
+      },
+      "notes": "Vague request — invalid"
+    },
+    {
+      "id": "duplicate_vpn",
+      "title": "VPN is not working",
+      "description": "VPN is not working for me. Connection keeps failing when I try to connect.",
+      "existing_tickets": [
+        {
+          "ticket_number": "INC-1001",
+          "title": "VPN not working",
+          "description": "VPN is not working. Connection keeps failing when I try to connect to corporate VPN."
+        }
+      ],
+      "expected": {
+        "action": "DUPLICATE",
+        "category": null,
+        "severity": null,
+        "assignee": null
+      },
+      "notes": "Challenging case — duplicate detection"
+    },
+    {
+      "id": "software_install",
+      "title": "Need Adobe Acrobat installed",
+      "description": "I need Adobe Acrobat installed for reviewing PDF contracts.",
+      "existing_tickets": [],
+      "expected": {
+        "action": "CREATE",
+        "category": "Application",
+        "severity": "P4",
+        "assignee": ["Priya Mehta", "Amit Patel", "Raj Shah"]
+      },
+      "notes": "Low priority software request"
+    }
+  ]
+}

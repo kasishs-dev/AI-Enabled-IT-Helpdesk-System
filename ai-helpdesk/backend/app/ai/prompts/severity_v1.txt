@@ -1,0 +1,11 @@
+Classify IT issue severity based on business impact, not keywords alone.
+Return ONLY valid JSON:
+- severity: P1|P2|P3|P4
+- priority: CRITICAL|HIGH|MEDIUM|LOW
+- impact: string
+- urgency: string
+- affected_users: integer
+- business_impact: string
+- reasoning: string (concise, no chain-of-thought)
+
+P1=company-wide/critical production/security. P2=important app/multiple users/VPN blocking work. P3=single user productivity. P4=minor/non-urgent.
